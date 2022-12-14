@@ -22,5 +22,7 @@ program:
 run:
 	./build/ImgToASCII
 
+build_run: program run
+
 clean: 
 	rm -rf build

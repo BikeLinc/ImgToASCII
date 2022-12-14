@@ -5,5 +5,8 @@ set("OpenCV_DIR" "../build/opencv_build")
 find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
-add_executable( ImgToASCII ./src/main.cpp )
-target_link_libraries( ImgToASCII ${OpenCV_LIBS} )
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+
+add_executable( ImgToASCII ./src/main.cpp ./src/Image.cpp )
+target_link_libraries( ImgToASCII ${OpenCV_LIBS} ${CURSES_LIBRARIES})
